@@ -1,21 +1,36 @@
-const food = (name, foodDes, price, image, altDes) => {
+import whiteTruffle from "../assets/white-truffle.jpg";
+import lemonSauce from "../assets/lemon-sauce.webp";
+import cajunSeafood from "../assets/seafood-sauce.jpeg";
+import pork from "../assets/pork.jpeg";
+import pecanChicken from "../assets/pecan-chicken.jpeg";
+import crabLobster from "../assets/crab.jpeg";
+import gnocchi from "../assets/gnocchi.jpeg";
+import roastedLamb from "../assets/roasted-lamb.jpeg";
+
+const images = [whiteTruffle, lemonSauce, cajunSeafood, pork, pecanChicken, crabLobster, gnocchi, roastedLamb];
+
+const food = (name, foodDes, price, image, altDes, i) => {
   const div = document.createElement("div");
 
-  const h4 = document.createElement("h4");
-  h4.textContent = name;
+  const h2 = document.createElement("h2");
+  h2.textContent = name;
 
   const pPrice = document.createElement("p");
   const pDes = document.createElement("p");
   
   pDes.textContent = foodDes;
-  pPrice.textContent = price;
+  pPrice.textContent = "Price: " + price;
 
+  const imageDiv = document.createElement("div");
+  imageDiv.classList.add("imageDiv");
   const img = new Image();
-  img.src = image;
+  img.src = images[i];
   img.alt = altDes;
+  imageDiv.appendChild(img);
 
-  [h4, pDes, pPrice, img].forEach(item => div.appendChild(item));
-
+  [h2, pDes, pPrice, imageDiv].forEach(item => div.appendChild(item));
+  
+  div.classList.add("flex");
   return div;
 };
 
@@ -23,13 +38,6 @@ const food = (name, foodDes, price, image, altDes) => {
 const createMenu = () => {
   
   const foodItems = {
-    0: {
-      name: "Foie Gras",
-      desc: "Foie Gras made with a fat duck's liver.",
-      price: "$150",
-      img: "../assets/foi-grass.jpg",
-      alt: "",
-    },
     1: {
       name: "White Truffles Egg",
       desc: "Served with scrambled eggs, this exuisite food will sooth your liver and your brain.",
@@ -89,16 +97,20 @@ const createMenu = () => {
   };
   
   const div = document.createElement("div");
-  div.classList.toggle("show");
 
   const foodValue = Object.values(foodItems);
-
+  
+  let i = 0;
   for (let item of foodValue) {
-    const foodItem = food(item.name, item.desc, item.price, item.img, item.alt);
+    const foodItem = food(item.name, item.desc, item.price, item.img, item.alt, i);
 
     div.appendChild(foodItem);
+    i += 1;
   };
 
+  div.classList.add("hide")
+  div.setAttribute("id", "menu");
+  div.classList.add("grid");
   return div;
 };
 

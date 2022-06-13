@@ -16,16 +16,18 @@ const makeContact = (street, name, address) => {
 
   [streetNum, streetName, locationAdd].forEach(para => paraDiv.appendChild(para));
   [h2, paraDiv].forEach(item => div.appendChild(item));
-  
-  div.classList.toggle("show");
+ 
+  div.setAttribute("id", "contact");
+  div.classList.add("hide");
+  div.classList.add("flex");
   return div;
 };
 
 
 const createContact = () => {
-  const street = "1902/2";
-  const name = "Brumburg street";
-  const address = "Behind the ancient pond, Mordor";
+  const street = "1902/2,";
+  const name = "Brumburg street,";
+  const address = "Behind the ancient pond, Mordor.";
 
   return makeContact(street, name, address);
 }

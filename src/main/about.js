@@ -28,7 +28,7 @@ const about = () => {
   const articles = document.createElement("article");
   articles.appendChild(storySection);
   articles.appendChild(kitchenSection);
-  
+  articles.setAttribute("id", "about");
   return articles;
 };
 

@@ -13,6 +13,8 @@ const main = () => {
   
   const menuContent = menu();
   mainContent.appendChild(menuContent);
+  mainContent.classList.add("grid");
+  mainContent.setAttribute("id", "main");
 
   return mainContent;
 };
