@@ -1,16 +1,15 @@
 const footerDiv = () => {
-  const div = document.createElement("div");
+  const footer = document.createElement("footer");
 
   const p = document.createElement("p");
   const a = document.createElement("a");
-  p.textContent = "Made by Pradeep Saini";
   a.href = "linkedin.com/in/pradeepsaini01";
-
+  a.textContent = "Made by Pradeep Saini";
   p.appendChild(a);
 
-  div.appendChild(p);
-
-  return div
+  footer.appendChild(p);
+  footer.classList.add("grid");
+  return footer; 
 }
 
 

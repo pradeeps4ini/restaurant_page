@@ -4,6 +4,7 @@
   --clr-gray: #6e6e6e;
   --clr-ylw-grn: #bcfd4c;
   --clr-light: #fff;
+  --clr-hover: hsl(283.9, 82.2%, 53.7%);
 }
 
 
@@ -35,6 +36,15 @@ h2 {
 
 p {
   font-size: clamp(1.5rem, calc(2vw + .5rem), 2rem);
+}
+
+a {
+  text-decoration: none;
+  color: var(--clr-gray);  
+}
+
+a:hover {
+  color: var(--clr-hover);
 }
 
 .nav-checkbox {
@@ -77,6 +87,10 @@ header ul {
   font-size: calc(var(--font-size) * 2);
 }
 
+ul li:hover,
+ul li:focus {
+  color: var(--clr-hover);
+}
 
 /* main */
 
@@ -135,13 +149,14 @@ section > h2 {
 
 #menu > div {
   flex-direction: column;
-  padding: 1rem;
+  padding: 2rem;
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
   inline-size: clamp(25rem, calc(20vw + 10rem) , 40rem);
   block-size: 400px;
-  border: 2px solid var(--clr-gray);
+  border: 2px solid var(--clr-hover);
+  box-shadow: .5px .5px 2px var(--clr-hover), -.5px -.5px 2px var(--clr-hover);
   border-radius: 10px;
 }
 
@@ -157,7 +172,7 @@ section > h2 {
 .imageDiv img {
   inline-size: 100%;
   block-size: 100%;
-  object-fit: contain
+  object-fit: contain;
 }
 
 
@@ -165,12 +180,17 @@ section > h2 {
 
 footer {
   grid-area: 3 / 1 / 4 / 1;
-  align-self: end;
+  place-items: center;
 }
 
 
 @media screen and (max-width: 600px) {
   
+  header {
+    justify-content: center; 
+    gap: 2rem;
+  } 
+
   header ul {
     transform: scale(1, 0);
     flex-flow: column nowrap;
@@ -180,11 +200,14 @@ footer {
 
     padding-block-start: 10rem;
     block-size: 100%;
-    inline-size: 40%;
+    inline-size: 50%;
+
+    padding-left: 2rem;
     background-color: var(--clr-light); 
 
     transform-origin: top right;
     transition: transform 250ms ease-in-out;
+    z-index: 99;
   }   
 
   .toggle-nav {
@@ -235,5 +258,9 @@ footer {
 
   .nav-checkbox:checked ~ .toggle-nav > span::after {
     transform: translateY(7px) rotate(135deg);
+  }
+
+  #menu {
+    padding-inline: 1rem;
   }
 } 
