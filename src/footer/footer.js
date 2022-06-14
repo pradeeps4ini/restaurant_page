@@ -3,7 +3,7 @@ const footerDiv = () => {
 
   const p = document.createElement("p");
   const a = document.createElement("a");
-  a.href = "linkedin.com/in/pradeepsaini01";
+  a.href = "https://www.linkedin.com/in/pradeepsaini01"
   a.textContent = "Made by Pradeep Saini";
   p.appendChild(a);
 
