@@ -45,6 +45,7 @@ a {
 
 a:hover {
   color: var(--clr-hover);
+  cursor: pointer;
 }
 
 .nav-checkbox {
@@ -90,6 +91,7 @@ header ul {
 ul li:hover,
 ul li:focus {
   color: var(--clr-hover);
+  cursor: pointer;
 }
 
 /* main */
@@ -165,7 +167,7 @@ section > h2 {
   inline-size: 90%;
   block-size: 100px;
 
-  border-radius: 10px;
+  border-radius: 15px;
   justify-self: flex-end;
 } 
 
